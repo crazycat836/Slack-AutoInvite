@@ -28,21 +28,21 @@ router.post('/invite', function(req, res) {
         if (body.ok) {
           res.render('result', {
             community: config.community,
-            message: 'Success! Check "'+ req.body.email +'" for an invite from Slack.'
+            message: '成功！ 檢查 "'+ req.body.email +'" 是否有收到邀請函.'
           });
         } else {
           var error = body.error;
           if (error === 'already_invited' || error === 'already_in_team') {
             res.render('result', {
               community: config.community,
-              message: 'Success! You were already invited.<br>' +
-                       'Visit <a href="https://'+ config.slackUrl +'">'+ config.community +'</a>'
+              message: '您已經被邀請過了.<br>' +
+                       '造訪 <a href="https://'+ config.slackUrl +'">'+ config.community +'</a>'
             });
             return;
           } else if (error === 'invalid_email') {
-            error = 'The email you entered is an invalid email.';
+            error = 'e-mail有誤!! 請重新輸入';
           } else if (error === 'invalid_auth') {
-            error = 'Something has gone wrong. Please contact a system administrator.';
+            error = 'Oops! 有東西出錯了. 請聯絡系統管理員.';
           }
 
           res.render('result', {
@@ -55,7 +55,7 @@ router.post('/invite', function(req, res) {
   } else {
     var errMsg = [];
     if (!req.body.email) {
-      errMsg.push('your email is required');
+      errMsg.push('請輸入 e-mail');
     }
 
     if (!!config.inviteToken) {
@@ -70,7 +70,7 @@ router.post('/invite', function(req, res) {
 
     res.render('result', {
       community: config.community,
-      message: 'Failed! ' + errMsg.join(' and ') + '.',
+      message: '失敗! ' + errMsg.join(' and ') + '.',
       isFailed: true
     });
   }
