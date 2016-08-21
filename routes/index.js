@@ -35,8 +35,8 @@ router.post('/invite', function(req, res) {
           if (error === 'already_invited' || error === 'already_in_team') {
             res.render('result', {
               community: config.community,
-              message: '您已經被邀請過了.<br>' +
-                       '造訪 <a href="https://'+ config.slackUrl +'">'+ config.community +'</a>'
+              message: '您已經被邀請過了<br>' +
+                       '前往 <a href="https://'+ config.slackUrl +'">'+ config.community +'</a>'
             });
             return;
           } else if (error === 'invalid_email') {
