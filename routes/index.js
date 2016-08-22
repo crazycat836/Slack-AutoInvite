@@ -47,7 +47,7 @@ router.post('/invite', function(req, res) {
 
           res.render('result', {
             community: config.community,
-            message: 'Failed! ' + error,
+            message: '錯誤! ' + error,
             isFailed: true
           });
         }

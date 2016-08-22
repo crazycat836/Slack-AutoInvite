@@ -1,6 +1,6 @@
 {
-  "HEADER": "加入 %s 討論區！",
-  "ENTER_EMAIL": "輸入您的 e-mail",
-  "ENTER_TOKEN": "輸入提供予您的邀請令牌",
-  "TITLE": "加入 %s 的 Slack 社群！"
+  "HEADER": "加入我們的 slack 討論區！",
+  "ENTER_EMAIL": "輸入 e-mail",
+  "ENTER_TOKEN": "輸入提供給您的邀請碼",
+  "TITLE": "Join Us On Slack！"
 }
